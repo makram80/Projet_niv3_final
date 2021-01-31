@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="css/adminlte.min.css">
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <span  class="navbar">Bonjour admin !</span>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarCollapse2">
+        <div class="navbar-nav">
+            <a href="dashborad.html" class="nav-item nav-link active">Dashborad</a>
+            <a href="index.html" class="nav-item nav-link active">Espace Client</a>
+        </div>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link active">Nous sommes le <span id="dt"></span></a>
+      </li>
+    </ul>
+</nav>
+ 
+<div class="container">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6"><br>
+            <h1>Les produits</h1><br>
+              <button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#ModalAdd">Ajouter un produit</button>
+          </div>      
+        </div>
+      </div>
+    </section>
+             
+              <div class="card-body">                    
+                   <table id="example2" class="table table-bordered table-hover">
+                     <thead>
+                          <tr>
+                              <th>produit</th>
+                              <th>Prix</th>
+                              <th>Stock Initial</th>
+                              <th><a href="" data-toggle="modal" data-target="#ModalImgarCode64">Image</a></th>
+                              <th>Modifier</th>
+                              <th>Supprimer</th>                            
+                           </tr>                         
+                     </thead>
+                     <tbody id="tbody">                   
+                     </tbody>              
+                   </table>
+               </div> 
+
+</div>
+
+<div  class="modal fade" id="ModalAdd" >
+  <div class="modal-dialog">
+    <div class="modal-content" id="edit-box" >
+      <form >               
+      <div class="modal-body">
+        <label>produit</label><br>
+        <input type="text" placeholder="product.." class="form-control" id="name" ><br>
+        <label>Prix</label><br>
+        <input type="number" class="form-control" id="prix" ><br>
+        <label>Stock</label><br>
+        <input type="number" class="form-control" id="stock"><br>
+        <label>Image</label><br>
+        <input type="file" class="form-control" id="file">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button  class="btn btn-primary" onclick="add()">Valider</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div  class="modal fade" id="ModalImgarCode64">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form >               
+      <div class="modal-body">
+        <label>Image Code64</label><br>
+        <input type="file" class="form-control" id="file2"><br> 
+      </div>
+      <div class="modal-footer">      
+        <button type="reset" class="btn btn-warning" >Reset</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div> 
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap4.min.js"></script>
+<script src="js/espaceAdmin.js"></script>
+<script>
+  var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1; //months from 1-12
+var day = dateObj.getUTCDate();   var year = dateObj.getUTCFullYear();
+var date = day+"/"+ month+"/"+year +" "+ dateObj.getHours()+":"+dateObj.getMinutes();  // console.log(newdate);
+document.getElementById('dt').innerHTML = date;
+</script>
+
+</body>
+</html>

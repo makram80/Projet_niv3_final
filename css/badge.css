@@ -1,0 +1,15 @@
+.bp {
+  background-color: rgb(24, 166, 231);
+  text-align: center;
+  color: white;
+}
+.done {
+  background-color: rgb(19, 214, 19);
+  text-align: center;
+  color: white;
+}
+.cancelled {
+  background-color: rgb(236, 15, 15);
+  text-align: center;
+  color: white;
+}
