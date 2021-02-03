@@ -3,26 +3,26 @@ var products = JSON.parse(localStorage.getItem("products")) || [];
 var tbody = document.getElementById("tbody");
 var modal = document.getElementById("ModalAdd");
 
-//code image ici : 
-var inputFile  = document.getElementById("file");
-inputFile.addEventListener('change', () => {
+//code image 1ici : 
+  var inputFile  = document.getElementById("file");
+  inputFile.addEventListener('change', () => {
+    console.log("inputfile:",inputFile );
+    const file = new FileReader();
+    file.readAsDataURL(inputFile.files[0]);     
+    file.onload = function () { 
+      imgobj = file.result }  
+    }); 
+//fin code image
+
+function fone(index) {
+var inputFile  = document.getElementById("fileUpload"+index);
+  console.log("inputfile:",inputFile );
   const file = new FileReader();
-  file.readAsDataURL(inputFile.files[0]);
-  file.onload = function () {
-    imgobj = file.result
-  }
-}); //fin code image
-//code image2: 
-var imgobj2 ="";
-var inputFile2  = document.getElementById("file2");
-inputFile2.addEventListener('change', () => {
-  const file2 = new FileReader();
-  file2.readAsDataURL(inputFile2.files[0]);
-  file2.onload = function () {
-    imgobj2 = file2.result
-  }
-});  
-//fin code image2
+  file.readAsDataURL(inputFile.files[0]);     
+  file.onload = function () { 
+    imgobj = file.result }
+};
+
 
 function add (){
     var name = document.getElementById("name").value
@@ -71,7 +71,11 @@ function fetchall() {
         <label>stock du produit</label><br>
         <input type="number" value ="${product.stock}" class="form-control" id="stock${products.indexOf(product)}"><br>
         <label>Photo base64</label><br>
-        <input type="text" value="${product.file}"     class="form-control" id="file${products.indexOf(product)}"><br>   
+        <div class="input-group-prepend"><img src="${product.file}" style="width: 30px">
+        <input type="hidden" value="${product.file}"  class="form-control" id="file${products.indexOf(product)}" ><br>
+        <input type="file"  class="form-control"  id="fileUpload${products.indexOf(product)}"  onchange="fone(${products.indexOf(product)})">
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -92,7 +96,7 @@ validerEdit=(index)=>{
    products[index].name=  document.getElementById('name'+index).value;
    products[index].stock= editStock;     
    products[index].price= editPrice; 
-   if (imgobj2) { products[index].file= imgobj2; }else{products[index].file= document.getElementById('file'+index).value; }       
+   if (imgobj) { products[index].file= imgobj; }//else{products[index].file= document.getElementById('file'+index).value; }       
 
    localStorage.setItem('products',JSON.stringify(products));
    location.reload()

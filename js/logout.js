@@ -23,16 +23,9 @@ if (recup != null)
         localStorage.removeItem("totalCost");
         localStorage.removeItem("userConnected");
         //localStorage.clear(); 
-        location.reload();
-        preventBack()
-
+        location.reload();       
         }   
-    
+
 } //else{console.log("aucun client/user est connecté")};
 
-// no back page after logout
-function preventBack(){window.history.forward();}
-setTimeout("preventBack()", 0);
-window.onunload=function(){null};
-//end no back page function
 

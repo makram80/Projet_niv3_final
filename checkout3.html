@@ -25,6 +25,11 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  <script type="text/javascript">
+          function preventBack() { window.history.forward(); }
+          setTimeout("preventBack()", 0);
+          window.onunload = function () { null };
+  </script>
   </head>
   <body>
     <!-- navbar-->
@@ -281,7 +286,7 @@
                           <h4>Paypal</h4>
                           <p>We like it all.</p>
                           <div class="box-footer text-center">
-                            <input type="radio" name="payment" value="paypal">
+                            <input type="radio" name="payment" value="paypal" required>
                           </div>
                         </div>
                       </div>
@@ -290,7 +295,7 @@
                           <h4>Payment gateway</h4>
                           <p>VISA and Mastercard only.</p>
                           <div class="box-footer text-center">
-                            <input type="radio" name="payment" value="visa">
+                            <input type="radio" name="payment" value="visa" required>
                           </div>
                         </div>
                       </div>
@@ -299,7 +304,7 @@
                           <h4>Cash on delivery</h4>
                           <p>You pay when you get it.</p>
                           <div class="box-footer text-center">
-                            <input type="radio" name="payment" value="cash">
+                            <input type="radio" name="payment" value="cash" required>
                           </div>
                         </div>
                       </div>

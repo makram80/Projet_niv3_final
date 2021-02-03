@@ -8,8 +8,14 @@ item.addEventListener('submit', e => {
   const email2 = item.email.value;                 
   const password2 = item.password.value;
 
+  if ( email2 == "admin@admin.com" && password2 == "admin"){
+    location.href = 'Espace_admin.html'; 
+  }
+  //}else if (u != null && email2 != "admin@admin.com"){
+
+
   let rules = u.find(o => o.email === email2).profile;   
-  console.log("ruless : ",rules);
+ // console.log("ruless : ",rules);
   
   const exist = u.find(user => user.email === email2 && user.password === password2); 
   const userC = {
@@ -21,17 +27,20 @@ item.addEventListener('submit', e => {
   if (exist)
   {
     localStorage.setItem('userConnected', JSON.stringify(userC));
-    if (userC.profile == "admin") {
-      location.href = 'espace_admin.html';    
-    }else{ 
-      form.reset(); 
-      window.history.back();
-      location.reload();
-    }  
+      if (userC.profile == "client") {     
+         window.history.back();            
+      } else{
+        form.reset(); 
+       // location.reload();
+      } 
       
   } else { alert('email or password incorrect'); } 
+
+//}
+
 })
 });
+
 
 
 

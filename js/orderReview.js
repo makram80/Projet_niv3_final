@@ -1,6 +1,8 @@
+
 const user_Connected = JSON.parse(localStorage.getItem('userConnected'));     //console.log(recup.name);
 if (user_Connected != null) 
 { 
+
 /*  
 var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -126,4 +128,11 @@ function viewOrder() {
 
 } // end if DATAproductsInCart
 } // end if user_Connected 
+
+
+
+
+
+
+
 

@@ -1,3 +1,4 @@
+
 // recuperer le contenue de checkout et ajouter dedans le mode de payment + set
 const checkout3 = JSON.parse(localStorage.getItem('checkout'));
 
@@ -12,7 +13,6 @@ radio.addEventListener('submit', e => {
     localStorage.setItem('checkout', JSON.stringify(checkout3));  
     location.href = 'orderReview.html';
 });
-// stock ...
 
 
 });
@@ -22,5 +22,4 @@ radio.addEventListener('submit', e => {
 const recupTot = JSON.parse(localStorage.getItem('totalCost'));  // console.log(recupTot);
 document.getElementById("subtot").innerHTML = "$" + recupTot;
 document.getElementById("finaltot").innerHTML = "$" + (recupTot +15);
-
 
